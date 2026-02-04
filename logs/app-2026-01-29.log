@@ -1,0 +1,10 @@
+2026-01-29 10:39:28 INFO  h.csaba.numbersheet2.app.Application - Application started...
+2026-01-29 10:39:28 INFO  h.c.n.generator.NumberGenerator - Számgenerálás indult: count=20, min=1, max=300
+2026-01-29 10:39:28 INFO  h.c.n.generator.NumberGenerator - Számgenerálás sikeres. 20 darab szám készült.
+2026-01-29 10:39:28 INFO  h.c.n.content.ContentBuilder - ContentBuilder indult. Beérkezett számok: 20
+2026-01-29 10:39:28 INFO  h.c.n.content.ContentBuilder - ContentBuilder sikeresen elkészült. 1 sor jött létre.
+2026-01-29 10:39:28 INFO  h.csaba.numbersheet2.pdf.PdfCreator - PDF készítés indult. Sorok száma: 1
+2026-01-29 10:39:28 WARN  o.apache.pdfbox.pdmodel.PDDocument - You are overwriting the existing file output.pdf, this will produce a corrupted file if you're also reading from it
+2026-01-29 10:39:28 INFO  h.csaba.numbersheet2.pdf.PdfCreator - PDF sikeresen elkészült: output.pdf
+2026-01-29 10:39:28 INFO  h.csaba.numbersheet2.app.Application - Application finished successfully.
+2026-01-29 10:39:28 INFO  h.csaba.numbersheet2.app.Application - Application finished successfully.
