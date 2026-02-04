@@ -1,8 +1,148 @@
-2026-01-30 09:20:49 INFO  h.csaba.numbersheet2.app.Application - Application started...
-2026-01-30 09:20:49 INFO  h.c.n.generator.NumberGenerator - Számgenerálás indult: count=20, min=1, max=300
-2026-01-30 09:20:49 INFO  h.c.n.generator.NumberGenerator - Számgenerálás sikeres. 20 darab szám készült.
-2026-01-30 09:20:49 INFO  h.csaba.numbersheet2.pdf.PdfCreator - PDF készítés indult. Sorok száma: 20
-2026-01-30 09:20:50 WARN  o.apache.pdfbox.pdmodel.PDDocument - You are overwriting the existing file output.pdf, this will produce a corrupted file if you're also reading from it
-2026-01-30 09:20:50 INFO  h.csaba.numbersheet2.pdf.PdfCreator - PDF sikeresen elkészült: output.pdf
-2026-01-30 09:20:50 INFO  h.csaba.numbersheet2.app.Application - Application finished successfully.
-2026-01-30 09:20:50 INFO  h.csaba.numbersheet2.app.Application - Application finished successfully.
+2026-02-04 19:21:46 ERROR h.c.n.error.ConfigException - [columns must be an integer] columns értéke egész szám kell legyen.: CFG-201
+2026-02-04 19:25:38 ERROR h.c.n.error.ConfigException - [columns must be an integer] columns értéke egész szám kell legyen.: CFG-201
+2026-02-04 19:26:57 ERROR h.c.n.error.ConfigException - [columns must be an integer] columns értéke egész szám kell legyen.: CFG-201
+2026-02-04 20:03:25 INFO  h.csaba.numbersheet2.app.Application - Application started...
+2026-02-04 20:03:25 INFO  h.c.n.generator.NumberGenerator - Számgenerálás indult: count=2000, min=1, max=999
+2026-02-04 20:03:25 INFO  h.c.n.generator.NumberGenerator - Számgenerálás sikeres. 2000 darab szám készült.
+2026-02-04 20:03:25 INFO  h.c.n.content.ContentBuilder - ContentBuilder indult. Beérkezett számok: 2000
+2026-02-04 20:03:25 INFO  h.c.n.content.ContentBuilder - ContentBuilder sikeresen elkészült. 167 sor jött létre.
+2026-02-04 20:03:25 INFO  h.csaba.numbersheet2.pdf.PdfCreator - PDF készítés indult. Sorok száma: 2000
+2026-02-04 20:03:25 INFO  o.a.p.p.font.FileSystemFontProvider - 31 new font files found, font cache will be re-built
+2026-02-04 20:03:25 INFO  o.a.p.p.font.FileSystemFontProvider - Building on-disk font cache, this may take a while
+2026-02-04 20:03:26 INFO  o.a.p.p.font.FileSystemFontProvider - Finished building on-disk font cache, found 301 fonts
+2026-02-04 20:03:26 ERROR h.csaba.numbersheet2.pdf.PdfCreator - [003] PDF generálási hiba
+java.io.FileNotFoundException: D:\Numberssheet_2_Data\output2.pdf (A rendszer nem találja a megadott elérési utat)
+	at java.base/java.io.FileOutputStream.open0(Native Method)
+	at java.base/java.io.FileOutputStream.open(FileOutputStream.java:255)
+	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:210)
+	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:171)
+	at org.apache.pdfbox.pdmodel.PDDocument.save(PDDocument.java:999)
+	at org.apache.pdfbox.pdmodel.PDDocument.save(PDDocument.java:954)
+	at hu.csaba.numbersheet2.pdf.PdfCreator.createReport(PdfCreator.java:117)
+	at hu.csaba.numbersheet2.app.Application.run(Application.java:36)
+	at hu.csaba.numbersheet2.Main.main(Main.java:9)
+2026-02-04 20:03:26 ERROR h.c.n.error.PdfCreationException - [003] PdfCreator: Nem sikerült létrehozni a PDF-et: D:\Numberssheet_2_Data\output2.pdf (A rendszer nem találja a megadott elérési utat)
+2026-02-04 20:03:26 ERROR h.csaba.numbersheet2.app.Application - Unexpected error occurred
+hu.csaba.numbersheet2.error.PdfCreationException: [003] PdfCreator: Nem sikerült létrehozni a PDF-et: D:\Numberssheet_2_Data\output2.pdf (A rendszer nem találja a megadott elérési utat)
+	at hu.csaba.numbersheet2.pdf.PdfCreator.createReport(PdfCreator.java:122)
+	at hu.csaba.numbersheet2.app.Application.run(Application.java:36)
+	at hu.csaba.numbersheet2.Main.main(Main.java:9)
+2026-02-04 20:04:37 INFO  h.csaba.numbersheet2.app.Application - Application started...
+2026-02-04 20:04:37 INFO  h.c.n.generator.NumberGenerator - Számgenerálás indult: count=2000, min=1, max=999
+2026-02-04 20:04:37 INFO  h.c.n.generator.NumberGenerator - Számgenerálás sikeres. 2000 darab szám készült.
+2026-02-04 20:04:37 INFO  h.c.n.content.ContentBuilder - ContentBuilder indult. Beérkezett számok: 2000
+2026-02-04 20:04:37 INFO  h.c.n.content.ContentBuilder - ContentBuilder sikeresen elkészült. 167 sor jött létre.
+2026-02-04 20:04:37 INFO  h.csaba.numbersheet2.pdf.PdfCreator - PDF készítés indult. Sorok száma: 2000
+2026-02-04 20:04:37 INFO  h.csaba.numbersheet2.pdf.PdfCreator - PDF sikeresen elkészült: D:\Numbersheet_2_Data\output2.pdf
+2026-02-04 20:04:37 INFO  h.csaba.numbersheet2.app.Application - Application finished successfully.
+2026-02-04 21:26:01 INFO  h.csaba.numbersheet2.app.Application - Application started...
+2026-02-04 21:26:01 INFO  h.c.n.generator.NumberGenerator - Számgenerálás indult: count=2000, min=1, max=999
+2026-02-04 21:26:01 INFO  h.c.n.generator.NumberGenerator - Számgenerálás sikeres. 2000 darab szám készült.
+2026-02-04 21:26:01 INFO  h.c.n.content.ContentBuilder - ContentBuilder indult. Beérkezett számok: 2000
+2026-02-04 21:26:01 INFO  h.c.n.content.ContentBuilder - ContentBuilder sikeresen elkészült. 167 sor jött létre.
+2026-02-04 21:26:01 INFO  h.csaba.numbersheet2.pdf.PdfCreator - PDF készítés indult. Sorok száma: 2000
+2026-02-04 21:26:01 WARN  o.apache.pdfbox.pdmodel.PDDocument - You are overwriting the existing file output2.pdf, this will produce a corrupted file if you're also reading from it
+2026-02-04 21:26:01 INFO  h.csaba.numbersheet2.pdf.PdfCreator - PDF sikeresen elkészült: D:\Numbersheet_2_Data\output2.pdf
+2026-02-04 21:26:01 INFO  h.csaba.numbersheet2.app.Application - Application finished successfully.
+2026-02-04 21:39:35 INFO  h.csaba.numbersheet2.app.Application - Application started...
+2026-02-04 21:39:35 INFO  h.c.n.generator.NumberGenerator - Számgenerálás indult: count=2000, min=1, max=999
+2026-02-04 21:39:35 INFO  h.c.n.generator.NumberGenerator - Számgenerálás sikeres. 2000 darab szám készült.
+2026-02-04 21:39:35 INFO  h.c.n.content.ContentBuilder - ContentBuilder indult. Beérkezett számok: 2000
+2026-02-04 21:39:35 INFO  h.c.n.content.ContentBuilder - ContentBuilder sikeresen elkészült. 167 sor jött létre.
+2026-02-04 21:39:35 INFO  h.csaba.numbersheet2.pdf.PdfCreator - PDF készítés indult. Sorok száma: 2000
+2026-02-04 21:39:35 WARN  o.apache.pdfbox.pdmodel.PDDocument - You are overwriting the existing file output2.pdf, this will produce a corrupted file if you're also reading from it
+2026-02-04 21:39:35 ERROR h.csaba.numbersheet2.pdf.PdfCreator - [003] PDF generálási hiba
+java.io.FileNotFoundException: D:\Numbersheet_2_Data\output2.pdf (A folyamat nem fér hozzá a fájlhoz, mert azt egy másik folyamat használja)
+	at java.base/java.io.FileOutputStream.open0(Native Method)
+	at java.base/java.io.FileOutputStream.open(FileOutputStream.java:255)
+	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:210)
+	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:171)
+	at org.apache.pdfbox.pdmodel.PDDocument.save(PDDocument.java:999)
+	at org.apache.pdfbox.pdmodel.PDDocument.save(PDDocument.java:954)
+	at hu.csaba.numbersheet2.pdf.PdfCreator.createReport(PdfCreator.java:52)
+	at hu.csaba.numbersheet2.app.Application.run(Application.java:36)
+	at hu.csaba.numbersheet2.Main.main(Main.java:9)
+2026-02-04 21:39:35 ERROR h.c.n.error.PdfCreationException - [003] PdfCreator: Nem sikerült létrehozni a PDF-et: D:\Numbersheet_2_Data\output2.pdf (A folyamat nem fér hozzá a fájlhoz, mert azt egy másik folyamat használja)
+2026-02-04 21:39:35 ERROR h.csaba.numbersheet2.app.Application - Unexpected error occurred
+hu.csaba.numbersheet2.error.PdfCreationException: [003] PdfCreator: Nem sikerült létrehozni a PDF-et: D:\Numbersheet_2_Data\output2.pdf (A folyamat nem fér hozzá a fájlhoz, mert azt egy másik folyamat használja)
+	at hu.csaba.numbersheet2.pdf.PdfCreator.createReport(PdfCreator.java:59)
+	at hu.csaba.numbersheet2.app.Application.run(Application.java:36)
+	at hu.csaba.numbersheet2.Main.main(Main.java:9)
+2026-02-04 21:39:50 INFO  h.csaba.numbersheet2.app.Application - Application started...
+2026-02-04 21:39:50 INFO  h.c.n.generator.NumberGenerator - Számgenerálás indult: count=2000, min=1, max=999
+2026-02-04 21:39:50 INFO  h.c.n.generator.NumberGenerator - Számgenerálás sikeres. 2000 darab szám készült.
+2026-02-04 21:39:50 INFO  h.c.n.content.ContentBuilder - ContentBuilder indult. Beérkezett számok: 2000
+2026-02-04 21:39:50 INFO  h.c.n.content.ContentBuilder - ContentBuilder sikeresen elkészült. 167 sor jött létre.
+2026-02-04 21:39:50 INFO  h.csaba.numbersheet2.pdf.PdfCreator - PDF készítés indult. Sorok száma: 2000
+2026-02-04 21:39:50 WARN  o.apache.pdfbox.pdmodel.PDDocument - You are overwriting the existing file output2.pdf, this will produce a corrupted file if you're also reading from it
+2026-02-04 21:39:50 INFO  h.csaba.numbersheet2.pdf.PdfCreator - PDF sikeresen elkészült: D:\Numbersheet_2_Data\output2.pdf
+2026-02-04 21:39:50 INFO  h.csaba.numbersheet2.app.Application - Application finished successfully.
+2026-02-04 21:44:29 INFO  h.csaba.numbersheet2.app.Application - Application started...
+2026-02-04 21:44:29 INFO  h.c.n.generator.NumberGenerator - Számgenerálás indult: count=2000, min=1, max=999
+2026-02-04 21:44:29 INFO  h.c.n.generator.NumberGenerator - Számgenerálás sikeres. 2000 darab szám készült.
+2026-02-04 21:44:29 INFO  h.c.n.content.ContentBuilder - ContentBuilder indult. Beérkezett számok: 2000
+2026-02-04 21:44:29 INFO  h.c.n.content.ContentBuilder - ContentBuilder sikeresen elkészült. 167 sor jött létre.
+2026-02-04 21:44:29 INFO  h.csaba.numbersheet2.pdf.PdfCreator - PDF készítés indult. Sorok száma: 2000
+2026-02-04 21:44:29 WARN  o.apache.pdfbox.pdmodel.PDDocument - You are overwriting the existing file output2.pdf, this will produce a corrupted file if you're also reading from it
+2026-02-04 21:44:29 INFO  h.csaba.numbersheet2.pdf.PdfCreator - PDF sikeresen elkészült: D:\Numbersheet_2_Data\output2.pdf
+2026-02-04 21:44:29 INFO  h.csaba.numbersheet2.app.Application - Application finished successfully.
+2026-02-04 21:56:40 INFO  h.csaba.numbersheet2.app.Application - Application started...
+2026-02-04 21:56:40 INFO  h.c.n.generator.NumberGenerator - Számgenerálás indult: count=2000, min=1, max=999
+2026-02-04 21:56:40 INFO  h.c.n.generator.NumberGenerator - Számgenerálás sikeres. 2000 darab szám készült.
+2026-02-04 21:56:40 INFO  h.c.n.content.ContentBuilder - ContentBuilder indult. Beérkezett számok: 2000
+2026-02-04 21:56:40 INFO  h.c.n.content.ContentBuilder - ContentBuilder sikeresen elkészült. 167 sor jött létre.
+2026-02-04 21:56:40 INFO  h.csaba.numbersheet2.pdf.PdfCreator - PDF készítés indult. Sorok száma: 2000
+2026-02-04 21:56:41 WARN  o.apache.pdfbox.pdmodel.PDDocument - You are overwriting the existing file output2.pdf, this will produce a corrupted file if you're also reading from it
+2026-02-04 21:56:41 ERROR h.csaba.numbersheet2.pdf.PdfCreator - [003] PDF generálási hiba
+java.io.FileNotFoundException: D:\Numbersheet_2_Data\output2.pdf (A folyamat nem fér hozzá a fájlhoz, mert azt egy másik folyamat használja)
+	at java.base/java.io.FileOutputStream.open0(Native Method)
+	at java.base/java.io.FileOutputStream.open(FileOutputStream.java:255)
+	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:210)
+	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:171)
+	at org.apache.pdfbox.pdmodel.PDDocument.save(PDDocument.java:999)
+	at org.apache.pdfbox.pdmodel.PDDocument.save(PDDocument.java:954)
+	at hu.csaba.numbersheet2.pdf.PdfCreator.createReport(PdfCreator.java:52)
+	at hu.csaba.numbersheet2.app.Application.run(Application.java:36)
+	at hu.csaba.numbersheet2.Main.main(Main.java:9)
+2026-02-04 21:56:41 ERROR h.c.n.error.PdfCreationException - [003] PdfCreator: Nem sikerült létrehozni a PDF-et: D:\Numbersheet_2_Data\output2.pdf (A folyamat nem fér hozzá a fájlhoz, mert azt egy másik folyamat használja)
+2026-02-04 21:56:41 ERROR h.csaba.numbersheet2.app.Application - Unexpected error occurred
+hu.csaba.numbersheet2.error.PdfCreationException: [003] PdfCreator: Nem sikerült létrehozni a PDF-et: D:\Numbersheet_2_Data\output2.pdf (A folyamat nem fér hozzá a fájlhoz, mert azt egy másik folyamat használja)
+	at hu.csaba.numbersheet2.pdf.PdfCreator.createReport(PdfCreator.java:59)
+	at hu.csaba.numbersheet2.app.Application.run(Application.java:36)
+	at hu.csaba.numbersheet2.Main.main(Main.java:9)
+2026-02-04 21:56:45 INFO  h.csaba.numbersheet2.app.Application - Application started...
+2026-02-04 21:56:45 INFO  h.c.n.generator.NumberGenerator - Számgenerálás indult: count=2000, min=1, max=999
+2026-02-04 21:56:45 INFO  h.c.n.generator.NumberGenerator - Számgenerálás sikeres. 2000 darab szám készült.
+2026-02-04 21:56:45 INFO  h.c.n.content.ContentBuilder - ContentBuilder indult. Beérkezett számok: 2000
+2026-02-04 21:56:46 INFO  h.c.n.content.ContentBuilder - ContentBuilder sikeresen elkészült. 167 sor jött létre.
+2026-02-04 21:56:46 INFO  h.csaba.numbersheet2.pdf.PdfCreator - PDF készítés indult. Sorok száma: 2000
+2026-02-04 21:56:46 WARN  o.apache.pdfbox.pdmodel.PDDocument - You are overwriting the existing file output2.pdf, this will produce a corrupted file if you're also reading from it
+2026-02-04 21:56:46 INFO  h.csaba.numbersheet2.pdf.PdfCreator - PDF sikeresen elkészült: D:\Numbersheet_2_Data\output2.pdf
+2026-02-04 21:56:46 INFO  h.csaba.numbersheet2.app.Application - Application finished successfully.
+2026-02-04 22:02:44 INFO  h.csaba.numbersheet2.app.Application - Application started...
+2026-02-04 22:02:44 INFO  h.c.n.generator.NumberGenerator - Számgenerálás indult: count=2000, min=1, max=999
+2026-02-04 22:02:44 INFO  h.c.n.generator.NumberGenerator - Számgenerálás sikeres. 2000 darab szám készült.
+2026-02-04 22:02:44 INFO  h.c.n.content.ContentBuilder - ContentBuilder indult. Beérkezett számok: 2000
+2026-02-04 22:02:44 INFO  h.c.n.content.ContentBuilder - ContentBuilder sikeresen elkészült. 167 sor jött létre.
+2026-02-04 22:02:44 INFO  h.csaba.numbersheet2.pdf.PdfCreator - PDF készítés indult. Sorok száma: 2000
+2026-02-04 22:02:44 WARN  o.apache.pdfbox.pdmodel.PDDocument - You are overwriting the existing file output2.pdf, this will produce a corrupted file if you're also reading from it
+2026-02-04 22:02:44 INFO  h.csaba.numbersheet2.pdf.PdfCreator - PDF sikeresen elkészült: D:\Numbersheet_2_Data\output2.pdf
+2026-02-04 22:02:44 INFO  h.csaba.numbersheet2.app.Application - Application finished successfully.
+2026-02-04 22:09:11 INFO  h.csaba.numbersheet2.app.Application - Application started...
+2026-02-04 22:09:11 INFO  h.c.n.generator.NumberGenerator - Számgenerálás indult: count=2000, min=1, max=999
+2026-02-04 22:09:11 INFO  h.c.n.generator.NumberGenerator - Számgenerálás sikeres. 2000 darab szám készült.
+2026-02-04 22:09:11 INFO  h.c.n.content.ContentBuilder - ContentBuilder indult. Beérkezett számok: 2000
+2026-02-04 22:09:11 INFO  h.c.n.content.ContentBuilder - ContentBuilder sikeresen elkészült. 167 sor jött létre.
+2026-02-04 22:09:11 INFO  h.csaba.numbersheet2.pdf.PdfCreator - PDF készítés indult. Sorok száma: 2000
+2026-02-04 22:09:11 WARN  o.apache.pdfbox.pdmodel.PDDocument - You are overwriting the existing file output2.pdf, this will produce a corrupted file if you're also reading from it
+2026-02-04 22:09:11 INFO  h.csaba.numbersheet2.pdf.PdfCreator - PDF sikeresen elkészült: D:\Numbersheet_2_Data\output2.pdf
+2026-02-04 22:09:11 INFO  h.csaba.numbersheet2.app.Application - Application finished successfully.
+2026-02-04 22:12:12 INFO  h.csaba.numbersheet2.app.Application - Application started...
+2026-02-04 22:12:12 INFO  h.c.n.generator.NumberGenerator - Számgenerálás indult: count=2000, min=1, max=999
+2026-02-04 22:12:12 INFO  h.c.n.generator.NumberGenerator - Számgenerálás sikeres. 2000 darab szám készült.
+2026-02-04 22:12:12 INFO  h.c.n.content.ContentBuilder - ContentBuilder indult. Beérkezett számok: 2000
+2026-02-04 22:12:12 INFO  h.c.n.content.ContentBuilder - ContentBuilder sikeresen elkészült. 167 sor jött létre.
+2026-02-04 22:12:12 INFO  h.csaba.numbersheet2.pdf.PdfCreator - PDF készítés indult. Sorok száma: 2000
+2026-02-04 22:12:13 WARN  o.apache.pdfbox.pdmodel.PDDocument - You are overwriting the existing file output2.pdf, this will produce a corrupted file if you're also reading from it
+2026-02-04 22:12:13 INFO  h.csaba.numbersheet2.pdf.PdfCreator - PDF sikeresen elkészült: D:\Numbersheet_2_Data\output2.pdf
+2026-02-04 22:12:13 INFO  h.csaba.numbersheet2.app.Application - Application finished successfully.

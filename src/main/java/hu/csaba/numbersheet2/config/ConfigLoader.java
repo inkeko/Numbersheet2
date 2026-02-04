@@ -8,12 +8,14 @@ import java.io.InputStream;
 import java.util.Properties;
 
 public class ConfigLoader {
-    private static final String CONFIG_FILE ="config.properties";
+
+    private static final String CONFIG_FILE = "config.properties";
+
     public static AppConfig load() throws ConfigException {
 
-       Properties props = new Properties();
+        Properties props = new Properties();
+
         // 1) Load config.properties
-        // 1) config.properties betöltése
         try (InputStream input = ConfigLoader.class.getClassLoader()
                 .getResourceAsStream(CONFIG_FILE)) {
 
@@ -25,8 +27,6 @@ public class ConfigLoader {
                 );
             }
 
-            // 2) Read values
-            // 2) Értékek kiolvasása
             props.load(input);
 
         } catch (IOException e) {
@@ -34,31 +34,30 @@ public class ConfigLoader {
                     "Failed to read config.properties: " + e.getMessage(),
                     "Nem sikerült beolvasni a config.properties fájlt.",
                     "CFG-002"
-
             );
         }
 
-
-        // 2) Read values
-        // 2) Értékek kiolvasása
-        String columsStr = props.getProperty("columns");
-        String columnsSpacingStr =  props.getProperty("columnsSpacing");
+        // --- READ VALUES ---
+        String columnsStr = props.getProperty("columns");
+        String columnSpacingStr = props.getProperty("columnSpacing");
         String lineHeightStr = props.getProperty("lineHeight");
         String fontSizeStr = props.getProperty("fontSize");
+
         String topMarginStr = props.getProperty("topMargin");
         String bottomMarginStr = props.getProperty("bottomMargin");
-        String headHeightStr = props.getProperty("headHeight");
+        String headerHeightStr = props.getProperty("headerHeight");
         String footerHeightStr = props.getProperty("footerHeight");
+
         String generatorCountStr = props.getProperty("generatorCount");
         String generatorMinStr = props.getProperty("generatorMin");
         String generatorMaxStr = props.getProperty("generatorMax");
-        String outputFileStr  = props.getProperty("outputFile");
 
+        String outputFileStr = props.getProperty("outputFile");
 
-        // --- VALIDÁCIÓ + PARSE ---
+        // --- VALIDATION + PARSE ---
 
         // Integers
-        int columns = parsePositiveInt(columnsSpacingStr, "columns");
+        int columns = parsePositiveInt(columnsStr, "columns");
         int fontSize = parsePositiveInt(fontSizeStr, "fontSize");
         int generatorCount = parsePositiveInt(generatorCountStr, "generatorCount");
         int generatorMin = parsePositiveInt(generatorMinStr, "generatorMin");
@@ -73,11 +72,11 @@ public class ConfigLoader {
         }
 
         // Floats
-        float columnSpacing = parsePositiveFloat(columnsSpacingStr, "columnSpacing");
+        float columnSpacing = parsePositiveFloat(columnSpacingStr, "columnSpacing");
         float lineHeight = parsePositiveFloat(lineHeightStr, "lineHeight");
         float topMargin = parsePositiveFloat(topMarginStr, "topMargin");
         float bottomMargin = parsePositiveFloat(bottomMarginStr, "bottomMargin");
-        float headerHeight = parsePositiveFloat(headHeightStr, "headerHeight");
+        float headerHeight = parsePositiveFloat(headerHeightStr, "headerHeight");
         float footerHeight = parsePositiveFloat(footerHeightStr, "footerHeight");
 
         // Output file
@@ -88,8 +87,7 @@ public class ConfigLoader {
                     "CFG-301"
             );
         }
-          String outputFile = outputFileStr;
-        // --- AppConfig példányosítás ---
+
         return new AppConfig(
                 columns,
                 columnSpacing,
@@ -102,13 +100,21 @@ public class ConfigLoader {
                 generatorCount,
                 generatorMin,
                 generatorMax,
-                outputFile
+                outputFileStr
         );
     }
 
-    // --- SEGÉDMETÓDUSOK ---
+    // --- HELPER METHODS ---
 
     private static int parsePositiveInt(String value, String fieldName) throws ConfigException {
+        if (value == null) {
+            throw new ConfigException(
+                    fieldName + " is missing",
+                    fieldName + " hiányzik a configból.",
+                    "CFG-205"
+            );
+        }
+
         if (!ValidationUtils.isInteger(value)) {
             throw new ConfigException(
                     fieldName + " must be an integer",
@@ -116,7 +122,9 @@ public class ConfigLoader {
                     "CFG-201"
             );
         }
+
         int parsed = Integer.parseInt(value);
+
         if (!ValidationUtils.isPositive(parsed)) {
             throw new ConfigException(
                     fieldName + " must be > 0",
@@ -124,12 +132,22 @@ public class ConfigLoader {
                     "CFG-202"
             );
         }
+
         return parsed;
     }
 
     private static float parsePositiveFloat(String value, String fieldName) throws ConfigException {
+        if (value == null) {
+            throw new ConfigException(
+                    fieldName + " is missing",
+                    fieldName + " hiányzik a configból.",
+                    "CFG-205"
+            );
+        }
+
         try {
             float parsed = Float.parseFloat(value);
+
             if (!ValidationUtils.isPositive(parsed)) {
                 throw new ConfigException(
                         fieldName + " must be > 0",
@@ -137,7 +155,9 @@ public class ConfigLoader {
                         "CFG-203"
                 );
             }
+
             return parsed;
+
         } catch (NumberFormatException e) {
             throw new ConfigException(
                     fieldName + " must be a float",
@@ -147,4 +167,3 @@ public class ConfigLoader {
         }
     }
 }
-

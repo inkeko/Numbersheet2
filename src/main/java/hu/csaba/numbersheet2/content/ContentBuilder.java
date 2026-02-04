@@ -25,7 +25,7 @@ public class ContentBuilder {
         this.columnWidth = 22;                           // oszlopblokk szélessége
     }
 
-    public List<String> build(List<Integer> numbers) {
+    public List<String> build(List<Integer> numbers, AppConfig config) {
 
         log.info("ContentBuilder indult. Beérkezett számok: {}",
                 numbers != null ? numbers.size() : "null");
