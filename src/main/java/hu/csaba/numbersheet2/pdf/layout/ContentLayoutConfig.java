@@ -11,12 +11,17 @@ public class ContentLayoutConfig {
 
     private final int blocksPerRow;
     private final int numbersPerBlock;
+
     private final float cellWidth;
+    private final float cellGap;
     private final float blockSpacing;
     private final float lineHeight;
+
     private final float leftMargin;
     private final float rightMargin;
+
     private final boolean useComma;
+
     private final PDType1Font font;
     private final int fontSize;
 
@@ -25,26 +30,71 @@ public class ContentLayoutConfig {
 
         try (InputStream in = getClass().getClassLoader()
                 .getResourceAsStream("layout.properties")) {
-            if (in != null) {
-                props.load(in);
+            if (in == null) {
+                throw new IllegalStateException("layout.properties not found on classpath");
             }
+            props.load(in);
         } catch (IOException e) {
-            // ha nincs vagy hibás, maradnak a defaultok
+            throw new RuntimeException("Failed to load layout.properties", e);
         }
 
-        this.blocksPerRow = Integer.parseInt(props.getProperty("blocksPerRow", "3"));
-        this.numbersPerBlock = Integer.parseInt(props.getProperty("numbersPerBlock", "3"));
-        this.cellWidth = Float.parseFloat(props.getProperty("cellWidth", "70"));
-        this.blockSpacing = Float.parseFloat(props.getProperty("blockSpacing", "90"));
-        this.lineHeight = Float.parseFloat(props.getProperty("lineHeight", "18"));
-        this.leftMargin = Float.parseFloat(props.getProperty("leftMargin", "50"));
-        this.rightMargin = Float.parseFloat(props.getProperty("rightMargin", "50"));
-        this.useComma = Boolean.parseBoolean(props.getProperty("useComma", "true"));
+        this.blocksPerRow     = getInt(props, "blocksPerRow");
+        this.numbersPerBlock  = getInt(props, "numbersPerBlock");
 
-        String fontName = props.getProperty("fontName", "HELVETICA");
-        this.fontSize = Integer.parseInt(props.getProperty("fontSize", "12"));
-        this.font = new PDType1Font(Standard14Fonts.FontName.valueOf(fontName));
+        this.cellWidth        = getFloat(props, "cellWidth");
+        this.cellGap          = getFloat(props, "cellGap");
+        this.blockSpacing     = getFloat(props, "blockSpacing");
+        this.lineHeight       = getFloat(props, "lineHeight");
+
+        this.leftMargin       = getFloat(props, "leftMargin");
+        this.rightMargin      = getFloat(props, "rightMargin");
+
+        this.useComma         = getBoolean(props, "useComma");
+
+        this.fontSize         = getInt(props, "fontSize");
+        String fontName       = getRequired(props, "fontName");
+        this.font             = new PDType1Font(
+                Standard14Fonts.FontName.valueOf(fontName)
+        );
+
+        validate();
     }
+
+    // ---------- helper methods ----------
+
+    private static String getRequired(Properties p, String key) {
+        String v = p.getProperty(key);
+        if (v == null || v.isBlank()) {
+            throw new IllegalArgumentException("Missing property: " + key);
+        }
+        return v;
+    }
+
+    private static int getInt(Properties p, String key) {
+        return Integer.parseInt(getRequired(p, key));
+    }
+
+    private static float getFloat(Properties p, String key) {
+        return Float.parseFloat(getRequired(p, key));
+    }
+
+    private static boolean getBoolean(Properties p, String key) {
+        return Boolean.parseBoolean(getRequired(p, key));
+    }
+
+    private void validate() {
+        if (blocksPerRow <= 0 || numbersPerBlock <= 0) {
+            throw new IllegalArgumentException("blocksPerRow and numbersPerBlock must be > 0");
+        }
+        if (cellWidth <= 0 || lineHeight <= 0) {
+            throw new IllegalArgumentException("cellWidth and lineHeight must be > 0");
+        }
+        if (fontSize <= 0) {
+            throw new IllegalArgumentException("fontSize must be > 0");
+        }
+    }
+
+    // ---------- getters ----------
 
     public int getBlocksPerRow() {
         return blocksPerRow;
@@ -56,6 +106,10 @@ public class ContentLayoutConfig {
 
     public float getCellWidth() {
         return cellWidth;
+    }
+
+    public float getCellGap() {
+        return cellGap;
     }
 
     public float getBlockSpacing() {
