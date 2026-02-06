@@ -24,7 +24,7 @@ public class PdfCreator {
     private final ContentRenderer renderer;
 
     public PdfCreator(AppConfig config) {
-        this.headerFooter = new HeaderFooterRenderer();
+        this.headerFooter = new HeaderFooterRenderer( config);
         this.layout = new ContentLayoutConfig();
         this.renderer = new ContentRenderer(layout);
     }
