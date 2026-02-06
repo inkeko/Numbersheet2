@@ -1,2 +1,0 @@
-Ez a modul állitja össze a a kapott List<Integer> listábol a szöveges listát
-amit majd a pdc creator kap meg
